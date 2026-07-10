@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+      int low = 0; 
+      int high = nums.size() -1;
+      
+      while(low <= high){
+        int mid = low + (high - low) / 2;
+        if(nums[mid] > nums[high]){
+            low = low + 1;
+
+        } else{
+            high = high -1;
+        }
+      }  
+      return nums[low];
+    }
+};

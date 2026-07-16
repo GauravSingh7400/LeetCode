@@ -11,16 +11,19 @@
  */
 class Solution {
 public:
+bool hel(TreeNode* root1 , TreeNode* root2){
+    if(root1 == nullptr || root2 ==nullptr){
+      return  root1==root2;
+    }
+   return (root1->val == root2->val) 
+    && hel(root1->left, root2->right) 
+    && hel(root1->right, root2->left);
+
+
+}
     bool isSymmetric(TreeNode* root) {
-        auto dfs = [&](this auto&& dfs, TreeNode* root1, TreeNode* root2) -> bool {
-            if (root1 == root2) {
-                return true;
-            }
-            if (!root1 || !root2 || root1->val != root2->val) {
-                return false;
-            }
-            return dfs(root1->left, root2->right) && dfs(root1->right, root2->left);
-        };
-        return dfs(root->left, root->right);
+       if(root == nullptr) return true;
+    
+    return hel(root -> left , root -> right);
     }
 };

@@ -11,10 +11,11 @@ public:
             else
                 break;
         }
-
         while (find(nums.begin(), nums.end(), sum) != nums.end()) {
-            sum++;
-        }
+    sum++;
+}
+
+       
 
         return sum;
     }
